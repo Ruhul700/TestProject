@@ -1,0 +1,22 @@
+﻿@page "/"
+@inject HttpClient httpClient
+
+<PageTitle>Index</PageTitle>
+
+<h1>Hello, world!</h1>
+
+Welcome to your new app.
+
+<SurveyPrompt Title="How is Blazor working for you?" />
+<RadzenButton Click="ButtonClicked" Text="Hi"></RadzenButton>
+<RadzenLabel id="lblHospital" Component="ddlHospital" Text="@sessionNo" />
+@code {
+    string? Name;
+    string sessionNo;
+    public async  void ButtonClicked()
+    {
+         Name = "Ruhul Amin";
+        var response = await httpClient.GetAsync($"api/t12000/getData?Name={Name}");
+        if (response.IsSuccessStatusCode) sessionNo = Helper.ReadStringResponse(response);
+    }
+}

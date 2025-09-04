@@ -1,0 +1,19 @@
+﻿<CascadingValue Value="this">
+    @ChildContent
+</CascadingValue>
+
+@code {
+    [Parameter]
+    public RenderFragment ChildContent { get; set; }
+
+    public string UserCode { get; set; } = "";
+    public string UserName { get; set; } = "";
+    public string HospCode { get; set; } = "";
+    public string RoleCode { get; set; } = "";
+    public string UserLang { get; set; } = "";
+    public string MainMenu { get; set; } = "";
+    public string LastLogin { get; set; } = "";
+    public string MenuOption { get; set; } = "";
+    public string SelectedModule { get; set; } = "";
+    public Dictionary<string, string> FormLastState { get; set; } = new();
+}
